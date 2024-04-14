@@ -14,7 +14,7 @@ import FormButton from '../common/form-button';
 
 export default function TopicCreateForm() {
 
-    const [formState, action] = useFormState(actions.createTopic, { errors: {}})
+    const [formState, action] = useFormState(actions.createTopic, { errors: {}});
 
     return (
         <Popover placement='left'>
