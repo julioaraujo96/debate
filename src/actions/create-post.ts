@@ -27,14 +27,10 @@ export async function createPost(
     formData: FormData,
 ): Promise<CreatePostFormState> {
 
-    console.log(formData)
-
     const result = createPostSchema.safeParse({
         title: formData.get('title'),
         content: formData.get('content')
     })
-
-    console.log(result)
 
     if(!result.success){
         return {
@@ -63,7 +59,6 @@ export async function createPost(
             }
         }
     }
-    console.log('Hello', result)
     let post: Post;
     try {
         post = await db.post.create({
