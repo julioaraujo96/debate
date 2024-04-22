@@ -48,7 +48,7 @@ export async function createTopic(formState: CreateTopicFormState, formData: For
     try {
         topic = await db.topic.create({
             data: {
-                slug: result.data.name,
+                slug: result.data.name.replace(' ', ''),
                 description: result.data.description,
             }
         })
