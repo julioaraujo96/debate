@@ -11,8 +11,11 @@ const paths = {
   postShow(topicSlug: string, postId: string) {
     return `/topics/${topicSlug}/posts/${postId}`;
   },
-  userPostShow(username: string) {
+  userProfileShow(username: string) {
     return `/user/${username}`;
+  },
+  userPostShow(username: string, postId: string) {
+    return `/user/${username}/posts/${postId}`;
   },
   searchPage(term: number) {
     return `/search?term=${term}`;

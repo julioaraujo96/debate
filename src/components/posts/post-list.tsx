@@ -18,9 +18,13 @@ export default async function PostList({
       throw new Error('Need a slug to link to a post');
     }
 
+    const toUrl = isProfilePage
+      ? paths.userPostShow(post.user.name || '', post.id)
+      : paths.postShow(topicSlug, post.id);
+
     return (
       <div key={post.id} className='border rounded p-2'>
-        <Link href={paths.postShow(topicSlug, post.id)}>
+        <Link href={toUrl}>
           <h3 className='text-lg font-bold'>{post.title}</h3>
         </Link>
         <div className='flex justify-between'>
@@ -29,7 +33,7 @@ export default async function PostList({
               <p className='text-xs text-gray-400'>By {post.user.name}</p>
             ) : (
               <Link
-                href={paths.userPostShow(post.user.name || '')}
+                href={paths.userProfileShow(post.user.name || '')}
                 className='text-xs text-gray-400 hover:text-blue-500'
               >
                 By {post.user.name}

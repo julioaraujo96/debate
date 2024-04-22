@@ -17,13 +17,15 @@ interface PostShowPageProps {
 export default async function PostShowPage({ params }: PostShowPageProps) {
   const { slug, postId } = params;
 
+  const pageUrl = paths.topicShow(slug);
+
   return (
     <div className='space-y-3'>
-      <Link className='underline decoration-solid' href={paths.topicShow(slug)}>
+      <Link className='underline decoration-solid' href={pageUrl}>
         {'< '}Back to {slug}
       </Link>
       <Suspense fallback={<PostShowLoading />}>
-        <PostShow postId={postId} />
+        <PostShow postId={postId} previousUrl={pageUrl} />
       </Suspense>
       <CommentCreateForm postId={postId} startOpen />
       <CommentList fetchData={() => fetchCommentsByPostId(postId)} />

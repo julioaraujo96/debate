@@ -16,9 +16,11 @@ export default async function UserShowPage({ params }: UserShowPageParams) {
   const { username } = params;
 
   const user = await findUserByUsername(username);
+
   if (!user) {
     notFound();
   }
+
   return (
     <div>
       <h1 className='text-xl m-2'>{`${username}'s posts`}</h1>
