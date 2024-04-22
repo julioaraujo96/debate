@@ -1,7 +1,6 @@
-import { notFound } from 'next/navigation';
-import { db } from '@/db';
-import { Button } from '@nextui-org/react';
-import DeleteIcon from '../common/delete-icon';
+import { notFound } from "next/navigation";
+import { db } from "@/db";
+import DeletePostForm from "./delete-post-form";
 
 interface PostShowProps {
   postId: string;
@@ -17,17 +16,10 @@ export default async function PostShow({ postId }: PostShowProps) {
   }
 
   return (
-    <div className='m-4'>
-      <h1 className='text-2xl font-bold my-2'>{post.title}</h1>
-      <p className='p-4 border rounded'>{post.content}</p>
-      <Button
-        color='danger'
-        variant='bordered'
-        size='sm'
-        startContent={<DeleteIcon />}
-      >
-        Delete user
-      </Button>
+    <div className="m-4">
+      <h1 className="text-2xl font-bold my-2">{post.title}</h1>
+      <p className="p-4 border rounded">{post.content}</p>
+      <DeletePostForm postId={post.id} />
     </div>
-  );
+  ); 
 }
