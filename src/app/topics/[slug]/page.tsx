@@ -15,8 +15,8 @@ interface TopicShowPageProps {
 export default async function TopicShowPage({ params }: TopicShowPageProps) {
   const { slug } = params;
 
-  if (!slug) {
-    redirect("/");
+  if(!slug){
+    redirect('/');
   }
 
   const topic: Topic | null = await db.topic.findFirst({
@@ -40,7 +40,7 @@ export default async function TopicShowPage({ params }: TopicShowPageProps) {
         <PostCreateForm slug={topic.slug} />
         <Divider className='my-2' />
         <h3 className='text-lg py-2'>Description</h3>
-        <div className="flex flex-row flex-wrap gap-2 text-sm text-gray-500">{topic.description}</div>
+        <div className="flex flex-row flex-wrap gap-2 text-sm text-gray-500">{topic?.description}</div>
       </div>
     </div>
   );
