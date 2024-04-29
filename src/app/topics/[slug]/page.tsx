@@ -22,6 +22,7 @@ export default function TopicShowPage({ params }: TopicShowPageProps) {
       </div>
       <div>
         <PostCreateForm slug={slug} />
+        {/* <h1>TODO: description</h1>  */}
       </div>
     </div>
   );
