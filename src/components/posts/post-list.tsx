@@ -23,7 +23,7 @@ export default async function PostList({
       : paths.postShow(topicSlug, post.id);
 
     return (
-      <div key={post.id} className='border rounded p-2'>
+      <div key={post.id} className='border rounded p-4'>
         <Link href={toUrl}>
           <h3 className='text-lg font-bold'>{post.title}</h3>
         </Link>

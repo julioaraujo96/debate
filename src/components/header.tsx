@@ -13,7 +13,7 @@ import ThemeSwitcher from './theme-switcher';
 
 export default function Header() {
   return (
-    <Navbar className='shadow mb-6'>
+    <Navbar className='shadow mb-6 rounded'>
       <NavbarBrand>
         <Link href='/' className='font-bold'>
           Debate

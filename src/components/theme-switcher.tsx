@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@nextui-org/react';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import ToggleModeButton from './common/toggle-mode-button';
 
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
@@ -12,21 +12,11 @@ export default function ThemeSwitcher() {
     setMounted(true);
   }, []);
 
+  const toggleDarkMode = useCallback(() => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  }, [theme, setTheme]);
+
   if (!mounted) return null;
 
-  const toggleDarkMode = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
-  return (
-    <Button
-      variant='light'
-      size='lg'
-      disableRipple
-      isIconOnly
-      onClick={toggleDarkMode}
-    >
-      {theme === 'light' ? '🌞' : '🌜'}
-    </Button>
-  );
+  return <ToggleModeButton theme={theme} toggleDarkMode={toggleDarkMode} />;
 }

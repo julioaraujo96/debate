@@ -36,7 +36,7 @@ export default async function TopicShowPage({ params }: TopicShowPageProps) {
           isProfilePage={false}
         />
       </div>
-      <div className='border shadow py-3 px-4'>
+      <div className='border shadow py-3 px-4 rounded'>
         <PostCreateForm slug={topic.slug} />
         <Divider className='my-2' />
         <h3 className='text-lg py-2'>Description</h3>

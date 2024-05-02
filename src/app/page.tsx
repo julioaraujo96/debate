@@ -11,7 +11,7 @@ export default async function Home() {
         <h1 className='text-xl m-2'>Top posts</h1>
         <PostList fetchData={fetchTopPosts} isProfilePage={false} />
       </div>
-      <div className='border shadow py-3 px-2'>
+      <div className='border shadow py-3 px-4 rounded'>
         <TopicCreateForm />
         <Divider className='my-2' />
         <h3 className='text-lg py-2'>Topics</h3>
