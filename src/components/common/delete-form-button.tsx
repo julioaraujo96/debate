@@ -1,24 +1,25 @@
-'use client'
+'use client';
 
 import { useFormStatus } from 'react-dom';
 import { Button } from '@nextui-org/react';
 import DeleteIcon from './delete-icon';
 
 interface FormButtonProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default function DeleteFormButton({ children }: FormButtonProps) {
-    const { pending } = useFormStatus();
+  const { pending } = useFormStatus();
 
-    return <Button
-        type="submit"
-        color="danger"
-        variant="bordered"
-        size="sm"
-        isLoading={pending}
-        startContent={<DeleteIcon />}
+  return (
+    <Button
+      type='submit'
+      color='danger'
+      size='sm'
+      isLoading={pending}
+      startContent={<DeleteIcon />}
     >
-        {children}
+      {children}
     </Button>
+  );
 }

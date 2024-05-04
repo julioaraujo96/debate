@@ -1,9 +1,9 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useCallback, useEffect, useState } from 'react';
-import ToggleModeButton from './common/toggle-mode-button';
+import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { Button } from '@nextui-org/react';
 
 export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
@@ -15,7 +15,9 @@ export default function ThemeSwitcher() {
     setMounted(true);
   }, []);
 
-  const toggleDarkMode = useCallback(async () => {
+  if (!mounted) return null;
+
+  const toggleDarkMode = async () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
     // Animate the first icon to move up and disappear
     await controls.start({
@@ -25,9 +27,7 @@ export default function ThemeSwitcher() {
     });
     // Animate the second icon to move down and appear
     await controls.start({ y: 0, transition: { duration: 0.5 }, opacity: 1 });
-  }, [controls, setTheme, theme]);
-
-  if (!mounted) return null;
+  };
 
   const isDarkmode = theme === 'dark';
 
@@ -38,11 +38,15 @@ export default function ThemeSwitcher() {
         animate={controls}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        {isDarkmode ? (
-          <ToggleModeButton theme={'dark'} toggleDarkMode={toggleDarkMode} />
-        ) : (
-          <ToggleModeButton theme={'light'} toggleDarkMode={toggleDarkMode} />
-        )}
+        <Button
+          variant='light'
+          size='lg'
+          disableRipple
+          isIconOnly
+          onClick={toggleDarkMode}
+        >
+          {isDarkmode ? '🌜' : '🌞'}
+        </Button>
       </motion.div>
     </>
   );

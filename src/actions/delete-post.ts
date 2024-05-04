@@ -54,5 +54,6 @@ export async function deletePost(
   });
 
   revalidatePath(previousUrl);
+  revalidatePath('/');
   redirect(previousUrl);
 }
