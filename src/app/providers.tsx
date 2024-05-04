@@ -12,7 +12,7 @@ export default function Providers({ children }: ProviderProps) {
   return (
     <SessionProvider>
       <NextUIProvider>
-        <NextThemesProvider attribute='class' defaultTheme='dark'>
+        <NextThemesProvider attribute='class' defaultTheme='dark' enableSystem>
           {children}
         </NextThemesProvider>
       </NextUIProvider>
