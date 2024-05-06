@@ -35,7 +35,7 @@ export default function CommentShow({ commentId, comments }: CommentShowProps) {
           <p className='text-sm font-medium text-gray-500'>
             {comment.user.name}
           </p>
-          <p className='text-gray-900'>{comment.content}</p>
+          <p className='dark:text-gray-300 text-gray-900'>{comment.content}</p>
 
           <CommentCreateForm postId={comment.postId} parentId={comment.id} />
         </div>
