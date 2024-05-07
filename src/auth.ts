@@ -28,10 +28,6 @@ export const {
     signIn: '/',
   },
   callbacks: {
-    async redirect({ url, baseUrl }) {
-      // Redirect to the correct URL after sign-in
-      return url.startsWith(baseUrl) ? url : baseUrl;
-    },
     //geralmente n é necessário mas bug temporário do nextauth
     async session({ session, user }: any) {
       if (session && user) {
