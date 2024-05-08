@@ -13,24 +13,23 @@ pnpm dev
 # or
 bun dev
 ```
+If you want to use this project, don't forget to rename .env.example files to .env , run npm install, run the npx prisma generate command.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I've built this project to understand server actions. A small social media, that you can debate about different topics. In order to do this i used:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Zod to validate the form data. 
+- Next Auth for the github provider.
+- Next UI.
+- Framer Motion just for the small darkmode switch.
+- Next Themes to easily switch.
+- Prisma ORM.
+- Supabase, for the postgres database.
+- Vercel because of the easily integrated deployments NextJS.
+- Skeleton loading to wait for the post contents.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+In addition, also learned how to manage the cache system in Next, deal with client and server components, set up github auth, supabase and vercel. It was a interesting project to add functionality after finishing the udemy course on Next 14.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To improve in the future: 
+- Add testing (wasn't the focus of this small project) , same for the responsiveness, it's not suited to mobile devices.
+- Maybe add analytics page or extra info other than top posts.
+- Add pagination to the posts show page. 
